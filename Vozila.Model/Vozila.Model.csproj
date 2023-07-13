@@ -44,6 +44,7 @@
     <Compile Include="Automobil.cs" />
     <Compile Include="Automobili.cs" />
     <Compile Include="Brod.cs" />
+    <Compile Include="IRegistracija.cs" />
     <Compile Include="Motocikl.cs" />
     <Compile Include="Vozila.cs" />
     <Compile Include="Vozilo.cs" />

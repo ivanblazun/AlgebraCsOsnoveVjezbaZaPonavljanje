@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Vozila.Model
 {
-    public class Vozilo : CollectionBase
+    public class Vozilo : CollectionBase, IRegistracija
     {
 		private string _naziv;
 
@@ -38,6 +38,38 @@ namespace Vozila.Model
 				_ks = value; 
 			}
 		}
+
+        #region IRegistracija
+
+        private bool _jeIspravno;
+        public bool JeIspravnoVozilo { get; }
+
+        private DateTime _datumRegistracije;
+        public DateTime DatumRegistracije { get; }
+      
+        public void Registriraj(bool jeIspravnoVozilo, DateTime datumRegistracije)
+        {
+            Console.WriteLine("Registracija vozila: ",Environment.NewLine);
+        
+            if (jeIspravnoVozilo == true)
+            {
+                _jeIspravno = jeIspravnoVozilo;
+                _datumRegistracije = datumRegistracije;
+                Console.WriteLine($"Datum registracije je od: {datumRegistracije}");
+            }
+            else 
+            {   
+                _jeIspravno = false;
+                Console.WriteLine("Vozilo mora biti ispravno da bi se registriralo");
+            }
+        }
+
+        public bool ProvjeriTehnicki(DateTime datum)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion IRegistracija
 
         public Vozilo(int ks)
         {
@@ -77,5 +109,6 @@ namespace Vozila.Model
                 this.Ks);
         }
 
+    
     }
 }
