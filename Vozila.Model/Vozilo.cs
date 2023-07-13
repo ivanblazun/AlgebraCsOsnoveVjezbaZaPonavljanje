@@ -66,7 +66,18 @@ namespace Vozila.Model
 
         public bool ProvjeriTehnicki(DateTime datum)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Provjera registracije vozila");
+            if (datum > _datumRegistracije)
+            {
+                Console.WriteLine("Regisdtracija je istekla");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Registracija Vrijedi");
+                return true;
+            }
+
         }
 
         #endregion IRegistracija
